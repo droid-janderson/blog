@@ -76,7 +76,7 @@ export default {
       items: [
         {
           icon: 'mdi-post',
-          title: 'Posts',
+          title: 'Postagens',
           to: '/'
         },
         {
