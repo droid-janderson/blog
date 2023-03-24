@@ -75,12 +75,12 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-account-plus',
+          icon: 'mdi-post',
           title: 'Posts',
           to: '/'
         },
         {
-          icon: 'mdi-flag-variant',
+          icon: 'mdi-account',
           title: 'Usuários',
           to: '/users'
         },
