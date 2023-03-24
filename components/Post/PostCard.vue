@@ -1,6 +1,7 @@
 <template>
+  <v-col cols="12" sm="12" md="4">
   <v-card
-    class="mb-2"
+    class="mx-auto mb-2"
     style="cursor: pointer"
     width="320"
     height="200"
@@ -17,6 +18,7 @@
       post.title
     }}</v-card-title>
   </v-card>
+</v-col>
 </template>
 
 <script>

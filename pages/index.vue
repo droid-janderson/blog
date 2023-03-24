@@ -1,13 +1,7 @@
 <template>
   <div>
     <div class="container-cards">
-    <v-row>
-      <v-col v-for="post in paginatedItems" :key="post.id" cols="4">
-        <post-card
-          :post="post"
-        />
-      </v-col>
-    </v-row>
+      <post-card v-for="post in paginatedItems" :key="post.id" :post="post" />
     </div>
     <div class="container-pagination">
       <v-pagination
@@ -22,60 +16,63 @@
 </template>
 
 <script>
-import PostCard from '../components/Post/PostCard.vue'
+import PostCard from "../components/Post/PostCard.vue";
 
 export default {
-  name: 'IndexPage',
-  data () {
+  name: "IndexPage",
+  data() {
     return {
       cards: [],
       pagination: {
         page: 1,
         total: 0,
         perPage: 12,
-        visible: 6
-      }
-    }
+        visible: 6,
+      },
+    };
   },
   components: {
     PostCard,
   },
-  async mounted () {
-      await this.getAll()
+  async mounted() {
+    await this.getAll();
   },
   methods: {
-    async getAll () {
+    async getAll() {
       try {
-        const response = await this.$axios.$get('/posts')
+        const response = await this.$axios.$get("/posts");
 
-        this.cards = response
+        this.cards = response;
         this.pagination.total = Math.ceil(
           this.cards.length / this.pagination.perPage
-        )
+        );
       } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
       }
     },
   },
   computed: {
-    paginatedItems () {
-      let page = this.pagination.page - 1
-      const perPage = this.pagination.perPage
-      let start = page * perPage
-      let end = start + perPage
+    paginatedItems() {
+      let page = this.pagination.page - 1;
+      const perPage = this.pagination.perPage;
+      let start = page * perPage;
+      let end = start + perPage;
 
-      const paginatedItems = this.cards
+      const paginatedItems = this.cards;
 
-      return paginatedItems.slice(start, end)
-    }
-  }
-}
+      return paginatedItems.slice(start, end);
+    },
+  },
+};
 </script>
 
 <style scoped>
 .container-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 100%;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .container-pagination {

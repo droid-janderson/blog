@@ -13,22 +13,24 @@
 
     <h3 class="my-6">{{ comments.length }} Comentários</h3>
     <v-row v-for="comment in comments" :key="comment.id">
-      <v-col cols="1">
-        <v-avatar color="#cecece" size="40">
-          <v-icon x-large>
-            mdi-account-circle
-          </v-icon>
-        </v-avatar>
-      </v-col>
-      <v-col cols="11">
-        <div>
-          <span class="ml-2 font-weight-medium font-italic">{{ comment.name }} -</span>
-          <a class="font-italic" href="mailto:">{{ comment.email }}</a>
-        </div>
-        <div>
-          {{ comment.body }}
-        </div>
-      </v-col>
+      <v-list>
+        <v-list-item class="d-flex">
+          <v-avatar  class="mt-3 mr-3 align-self-start" color="#cecece" size="40">
+            <v-icon x-large> mdi-account-circle </v-icon>
+          </v-avatar>
+
+          <v-list-item-content>
+              <div>
+                <span class="ml-2 font-weight-medium font-italic">{{ comment.name }} -</span>
+                <a class="font-italic" href="mailto:">{{ comment.email }}</a>
+              </div>
+              <div>
+                {{ comment.body }}
+              </div>
+          </v-list-item-content>
+
+        </v-list-item>
+      </v-list>
     </v-row>
   </v-container>
 </template>

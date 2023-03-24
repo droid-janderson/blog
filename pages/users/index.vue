@@ -1,6 +1,32 @@
 <template>
-  <v-container style="max-width: max-content;">
-    <v-list>
+  <v-container>
+    <div class="hidden-md-and-up">
+      <h2 class="mb-3">Usuários</h2>
+      <v-row v-for="user in users" :key="user.id">
+
+        <v-col cols="12">
+          <v-avatar class="mr-3" color="#cecece" size="50">
+            <v-icon style="font-size: 60px" > mdi-account-circle </v-icon>
+          </v-avatar>
+          <span>{{ user.name }}</span>
+        </v-col>
+        <v-col cols="12" class="d-flex justify-center">
+          <v-btn
+            elevation="2"
+            width="136"
+            class="font-weight-regular text-capitalize"
+            outlined
+            tile
+            color="#38B6FF"
+            @click="openDetails(user)"
+          >
+            <v-icon color="#38B6FF" class="mr-3"> mdi-card-account-details </v-icon>
+            Detalhes
+          </v-btn>
+        </v-col>
+      </v-row>
+    </div>
+    <v-list class="mx-auto hidden-sm-and-down" style="max-width: 45%;">
       <h1>Usuários</h1>
 
       <v-list-item v-for="user in users" :key="user.id">
@@ -16,7 +42,7 @@
           <v-btn
             elevation="2"
             width="136"
-            class="font-weight-regular text-capitalize hidden-sm-and-down"
+            class="font-weight-regular text-capitalize"
             outlined
             tile
             color="#38B6FF"
