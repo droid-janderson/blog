@@ -12,7 +12,7 @@
       <v-icon color="#38B6FF" class="mr-3">
         mdi-home
       </v-icon>
-      Home
+      Início
     </v-btn>
     <v-btn
       elevation="0"
